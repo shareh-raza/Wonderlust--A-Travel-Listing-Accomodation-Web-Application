@@ -10,8 +10,8 @@ const listingSchema = new Schema({
     description: String,
 
     image: {
-        filename: String,
         url: String,
+        filename: String,
     },
 
     price: Number,
@@ -27,6 +27,18 @@ const listingSchema = new Schema({
     owner: {
         type: Schema.Types.ObjectId,
         ref: "User",
+    },
+
+    geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        },
     },
 
 });
